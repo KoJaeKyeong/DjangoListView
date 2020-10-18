@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}closet_search.html{% endblock %}
+{% block content %}
+
+<h1>옷 검색</h1>
+<br>
+<form action="." method="post">{% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+</form>
+<br/><br/>
+{% if object_list %}
+<div class="container">
+    <div class="row">
+    {% for closet in object_list %}
+        <div class="col-4">
+            <div class="mt-3">{{ closet.product_name }}</div>
+            <img style="width: 300px; height: 300px" src="{{ closet.product_image }}">
+            <div>{{ closet.brand }}</div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% elif search_term %}
+    <b><i>Search Word({{ search_term }}) 검색결과가 없습니다!</i></b>
+{% endif %}
+
+{% endblock %}

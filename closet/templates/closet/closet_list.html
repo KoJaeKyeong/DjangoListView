@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}closet_list.html{% endblock %}
+
+{% block content %}
+
+<h2>나의 옷장</h2>
+
+<div class="container">
+    <div class="row">
+        {% for object in object_list %}
+        <div class="col-4">
+            <div class="card mt-2 mb-2">
+                <div class="card-body">
+                    <img style="width: 300px; height: 300px" src="{{ object.product_image }}">
+                    <div class="card-title mt-1"><b>{{ object.product_name }}</b></div>
+                    <div class="card-text">{{ object.classification }}</div>
+                    <div class="card-text">{{ object.brand }}</div>
+                    <a href="{% url 'closet:detail' object.id %}" class="btn btn-primary">More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="text-center">
+    <span>
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">PreviousPage</a>
+        {% endif %}
+
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">NextPage</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

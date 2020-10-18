@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}home.html{% endblock %}
+
+{% block extra-style %}
+<style type="text/css">
+.home-image {
+    background-image: url("https://lh3.googleusercontent.com/proxy/S8lnK6VClGVgvSacQ5ddZjb1epZRZfs8fbICpwykSHkPYBo4_KvSQFRZUKSWVsEWyGzWSNWlfZ5H2399qu0J9D0z1050pNHX7MmSX5dLiuOq7NCsjw22gwyG6y6nZEwzCQcW-zkcToFHYeDBvQ");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    height: 700px;
+    border-top: 10px solid #ccc;
+    border-bottom: 10px solid #ccc;
+    padding: 20px 0 0 20px;
+}
+.title {
+    color: #c80;
+    font-weight: bold;
+}
+.powered {
+    position: relative;
+    top: 77%;
+    color: #cc0;
+    font-style: italic;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="home-image">
+
+    </div>
+{% endblock content %}
+
+{% block footer %}
+<footer class="fixed-bottom">
+    <div class="font-italic text-right mr-5">웹디비프로그래밍</div>
+    <div class="font-italic text-right mr-5">컴퓨터공학과 201433727 고재경</div>
+</footer>
+{% endblock %}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Django Web Programming{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    {% block extra-style %}{% endblock %}
+</head>
+
+<body style="padding-top:90px;">
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <a href="{% url 'home' %}" class="navbar-brand mx-5 mb-0 font-weight-bold font-italic" style="font-size: 30px">My Daily Look</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mt-1">
+            <li class="nav-item mx-1 btn">
+                <a class="nav-link" href="{% url 'closet:index' %}">나의 옷장</a></li>
+            <li class="nav-item mx-1 btn">
+                <a class="nav-link" href="{% url 'mypick:index' %}">나의 데일리</a></li>
+            <li class="nav-item mx-1 btn">
+                <a class="nav-link" href="{% url 'closet:search' %}">옷장 안 옷 찾기</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+
+{% block footer %}{% endblock %}
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/c998a172fe.js"></script>
+
+{% block extra-script %}{% endblock %}
+
+</body>
+</html>
+
